@@ -8,6 +8,7 @@ function AddUser() {
   const [eventvar, setevent] = useState("");
   const [date, setdate] = useState(Date());
   const [paymentStatus, setpaymentStatus] = useState(false);
+  const [date, setdate] = useState("");
 
   function saveUser(event) {
     event.preventDefault();
@@ -26,6 +27,7 @@ function AddUser() {
         event: eventvar,
         date: Date(date),
         paymentStatus: paymentStatus,
+        date: date,
       }),
     })
       .then((response) => response.json())
@@ -89,6 +91,16 @@ function AddUser() {
                 className="form-control bg-secondary"
                 value={ticketCount}
                 onChange={(event) => setticketCount(event.target.value)}
+              />
+            </div>
+
+            <div className="mb-3">
+              <label className="form-label">Event Date</label>
+              <input
+                type="date"
+                className="form-control bg-secondary text-white"
+                value={date}
+                onChange={(event) => setdate(event.target.value)}
               />
             </div>
 

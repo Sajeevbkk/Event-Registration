@@ -8,6 +8,7 @@ function EditUser() {
   const [eventvar, setevent] = useState("");
   const [date, setdate] = useState(Date());
   const [paymentStatus, setpaymentStatus] = useState(false);
+  const [date, setdate] = useState("");
 
   const { id } = useParams();
 
@@ -21,6 +22,7 @@ function EditUser() {
         setevent(data.event);
         setdate(data.date);
         setpaymentStatus(data.paymentStatus);
+        setdate(data.date || "");
       });
   }, [id]);
 
@@ -41,6 +43,7 @@ function EditUser() {
         event: eventvar,
         date: Date(date),
         paymentStatus: paymentStatus,
+        date: date,
       }),
     })
       .then((response) => response.json())
@@ -105,6 +108,16 @@ function EditUser() {
                 className="form-control bg-secondary"
                 value={ticketCount}
                 onChange={(event) => setticketCount(event.target.value)}
+              />
+            </div>
+
+            <div className="mb-3">
+              <label className="form-label">Event Date</label>
+              <input
+                type="date"
+                className="form-control bg-secondary text-white"
+                value={date}
+                onChange={(event) => setdate(event.target.value)}
               />
             </div>
 

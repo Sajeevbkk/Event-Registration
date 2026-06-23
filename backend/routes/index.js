@@ -10,6 +10,7 @@ router.post("/registrations", async (req, res) => {
     event: req.body.event,
     date: req.body.date,
     paymentStatus: req.body.paymentStatus,
+    date: req.body.date,
   });
 
   await user.save();
@@ -42,6 +43,7 @@ router.put("/registrations/:id", async (req, res) => {
     event: req.body.event,
     date: req.body.date,
     paymentStatus: req.body.paymentStatus,
+    date: req.body.date,
   });
 
   res.json({ message: "User Edited Successfully!!" });

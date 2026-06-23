@@ -163,6 +163,7 @@ function App() {
                           <thead>
                             <tr className="table-primary">
                               <th>User Details</th>
+                              <th>Event Date</th>
                               <th>Tickets</th>
                               <th>Contact</th>
                               <th>Event</th>
@@ -178,6 +179,14 @@ function App() {
                                   <span className="fw-bold">
                                     {user.userName}
                                   </span>
+                                </td>
+                                <td>
+                                  {user.date
+                                    ? (() => {
+                                        const [y, m, d] = user.date.split("-");
+                                        return `${d}/${m}/${y}`;
+                                      })()
+                                    : "N/A"}
                                 </td>
                                 <td>{user.ticketCount}</td>
                                 <td>{user.contact}</td>

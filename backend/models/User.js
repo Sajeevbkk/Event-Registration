@@ -24,6 +24,10 @@ const userSchema = new mongoose.Schema({
   paymentStatus: {
     type: Boolean,
   },
+
+  date: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("User", userSchema);
