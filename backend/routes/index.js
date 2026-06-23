@@ -8,6 +8,7 @@ router.post("/registrations", async (req, res) => {
     ticketCount: req.body.ticketCount,
     contact: req.body.contact,
     paymentStatus: req.body.paymentStatus,
+    date: req.body.date,
   });
 
   await user.save();
@@ -38,6 +39,7 @@ router.put("/registrations/:id", async (req, res) => {
     ticketCount: req.body.ticketCount,
     contact: req.body.contact,
     paymentStatus: req.body.paymentStatus,
+    date: req.body.date,
   });
 
   res.json({ message: "User Edited Successfully!!" });
