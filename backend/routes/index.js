@@ -7,6 +7,8 @@ router.post("/registrations", async (req, res) => {
     userName: req.body.userName,
     ticketCount: req.body.ticketCount,
     contact: req.body.contact,
+    event: req.body.event,
+    date: req.body.date,
     paymentStatus: req.body.paymentStatus,
   });
 
@@ -37,6 +39,8 @@ router.put("/registrations/:id", async (req, res) => {
     userName: req.body.userName,
     ticketCount: req.body.ticketCount,
     contact: req.body.contact,
+    event: req.body.event,
+    date: req.body.date,
     paymentStatus: req.body.paymentStatus,
   });
 

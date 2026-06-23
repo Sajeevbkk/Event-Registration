@@ -13,6 +13,14 @@ const userSchema = new mongoose.Schema({
     type: String,
   },
 
+  event: {
+    type: String,
+  },
+
+  date: {
+    type: Date,
+  },
+
   paymentStatus: {
     type: Boolean,
   },

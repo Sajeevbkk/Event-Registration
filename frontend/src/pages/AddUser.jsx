@@ -5,6 +5,8 @@ function AddUser() {
   const [userName, setuserName] = useState("");
   const [ticketCount, setticketCount] = useState(0);
   const [contact, setcontact] = useState("");
+  const [eventvar, setevent] = useState("");
+  const [date, setdate] = useState(Date());
   const [paymentStatus, setpaymentStatus] = useState(false);
 
   function saveUser(event) {
@@ -21,6 +23,8 @@ function AddUser() {
         userName: userName,
         ticketCount: Number(ticketCount),
         contact: contact,
+        event: eventvar,
+        date: Date(date),
         paymentStatus: paymentStatus,
       }),
     })
@@ -104,6 +108,33 @@ function AddUser() {
               <div id="contactHelp" className="form-text text-white-50">
                 We'll never share your email/phone with anyone else.
               </div>
+            </div>
+
+            <div class="mb-3">
+              <label className="form-label">Event</label>
+              <input
+                type="string"
+                placeholder="Eg: Julabi Lala..."
+                className="form-control bg-secondary"
+                value={eventvar}
+                onChange={(event) => setevent(event.target.value)}
+              />
+            </div>
+
+            <div className="mb-3">
+              <label className="form-label" htmlFor="event-date">
+                Select a date:
+              </label>
+              <input
+                type="date"
+                id="event-date"
+                name="event-date"
+                className="form-control bg-secondary"
+                value={date}
+                onChange={(event) => {
+                  setdate(event.target.value);
+                }}
+              />
             </div>
 
             <div className="btn-group" role="group" aria-label="Payment Status">

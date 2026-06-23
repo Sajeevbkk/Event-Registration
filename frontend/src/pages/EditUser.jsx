@@ -5,6 +5,8 @@ function EditUser() {
   const [userName, setuserName] = useState("");
   const [ticketCount, setticketCount] = useState(0);
   const [contact, setcontact] = useState("");
+  const [eventvar, setevent] = useState("");
+  const [date, setdate] = useState(Date());
   const [paymentStatus, setpaymentStatus] = useState(false);
 
   const { id } = useParams();
@@ -16,6 +18,8 @@ function EditUser() {
         setuserName(data.userName);
         setticketCount(data.ticketCount);
         setcontact(data.contact);
+        setevent(data.event);
+        setdate(data.date);
         setpaymentStatus(data.paymentStatus);
       });
   }, [id]);
@@ -34,6 +38,8 @@ function EditUser() {
         userName: userName,
         ticketCount: Number(ticketCount),
         contact: contact,
+        event: eventvar,
+        date: Date(date),
         paymentStatus: paymentStatus,
       }),
     })
@@ -77,7 +83,7 @@ function EditUser() {
 
       <div className="container-fluid min-vh-100 bg-dark">
         <div className="container-sm min-vh-100 bg-dark text-white p-4">
-          <h2 className="mb-4">Add User</h2>
+          <h2 className="mb-4">Edit User</h2>
 
           <form onSubmit={updateUser}>
             <div class="mb-3">
@@ -118,6 +124,33 @@ function EditUser() {
               <div id="contactHelp" className="form-text text-white-50">
                 We'll never share your email/phone with anyone else.
               </div>
+            </div>
+
+            <div class="mb-3">
+              <label className="form-label">Event</label>
+              <input
+                type="string"
+                placeholder="Eg: Julabi Lala..."
+                className="form-control bg-secondary"
+                value={eventvar}
+                onChange={(event) => setevent(event.target.value)}
+              />
+            </div>
+
+            <div className="mb-3">
+              <label className="form-label" htmlFor="event-date">
+                Select a date: {date}
+              </label>
+              <input
+                type="date"
+                id="event-date"
+                name="event-date"
+                className="form-control bg-secondary"
+                value={date}
+                onChange={(event) => {
+                  setdate(event.target.value);
+                }}
+              />
             </div>
 
             <div className="btn-group" role="group" aria-label="Payment Status">

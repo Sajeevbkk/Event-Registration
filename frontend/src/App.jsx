@@ -165,6 +165,8 @@ function App() {
                               <th>User Details</th>
                               <th>Tickets</th>
                               <th>Contact</th>
+                              <th>Event</th>
+                              <th>Date</th>
                               <th>Paid Status</th>
                               <th className="text-end pe-4">Actions</th>
                             </tr>
@@ -179,6 +181,18 @@ function App() {
                                 </td>
                                 <td>{user.ticketCount}</td>
                                 <td>{user.contact}</td>
+                                <td>{user.event ? user.event : "No Event"}</td>
+                                <td>
+                                  {
+                                    <td>
+                                      {user.date
+                                        ? new Date(
+                                            user.date,
+                                          ).toLocaleDateString("en-CA")
+                                        : "No Date"}
+                                    </td>
+                                  }
+                                </td>
                                 <td>
                                   {user.paymentStatus === true ? (
                                     <span className="badge bg-success">
