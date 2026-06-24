@@ -163,9 +163,8 @@ function App() {
                           <thead>
                             <tr className="table-primary">
                               <th>User Details</th>
-                              <th>Tickets</th>
                               <th>Contact</th>
-                              <th>Event</th>
+                              <th>Events</th>
                               <th>Event Date</th>
                               <th>Paid Status</th>
                               <th className="text-end pe-4">Actions</th>
@@ -179,9 +178,27 @@ function App() {
                                     {user.userName}
                                   </span>
                                 </td>
-                                <td>{user.ticketCount}</td>
                                 <td>{user.contact}</td>
-                                <td>{user.event ? user.event : "No Event"}</td>
+                                <td>
+                                  {user.events && user.events.length > 0 ? (
+                                    <div className="dropdown">
+                                      <button className="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        View Events ({user.events.length})
+                                      </button>
+                                      <ul className="dropdown-menu dropdown-menu-dark">
+                                        {user.events.map((ev, index) => (
+                                          <li key={index}>
+                                            <span className="dropdown-item">
+                                              {ev.eventName} - {ev.ticketCount} ticket(s)
+                                            </span>
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    </div>
+                                  ) : (
+                                    "No Events"
+                                  )}
+                                </td>
                                 <td>
                                   {user.date
                                     ? (() => {

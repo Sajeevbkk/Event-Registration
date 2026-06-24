@@ -5,17 +5,18 @@ const userSchema = new mongoose.Schema({
     type: String,
   },
 
-  ticketCount: {
-    type: Number,
-  },
-
   contact: {
     type: String,
   },
 
-  event: {
-    type: String,
-  },
+  events: [{
+    eventName: {
+      type: String,
+    },
+    ticketCount: {
+      type: Number,
+    }
+  }],
 
   date: {
     type: Date,
