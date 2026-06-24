@@ -163,11 +163,10 @@ function App() {
                           <thead>
                             <tr className="table-primary">
                               <th>User Details</th>
-                              <th>Event Date</th>
                               <th>Tickets</th>
                               <th>Contact</th>
                               <th>Event</th>
-                              <th>Date</th>
+                              <th>Event Date</th>
                               <th>Paid Status</th>
                               <th className="text-end pe-4">Actions</th>
                             </tr>
@@ -180,6 +179,9 @@ function App() {
                                     {user.userName}
                                   </span>
                                 </td>
+                                <td>{user.ticketCount}</td>
+                                <td>{user.contact}</td>
+                                <td>{user.event ? user.event : "No Event"}</td>
                                 <td>
                                   {user.date
                                     ? (() => {
@@ -187,20 +189,6 @@ function App() {
                                         return `${d}/${m}/${y}`;
                                       })()
                                     : "N/A"}
-                                </td>
-                                <td>{user.ticketCount}</td>
-                                <td>{user.contact}</td>
-                                <td>{user.event ? user.event : "No Event"}</td>
-                                <td>
-                                  {
-                                    <td>
-                                      {user.date
-                                        ? new Date(
-                                            user.date,
-                                          ).toLocaleDateString("en-CA")
-                                        : "No Date"}
-                                    </td>
-                                  }
                                 </td>
                                 <td>
                                   {user.paymentStatus === true ? (

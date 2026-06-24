@@ -6,9 +6,8 @@ function EditUser() {
   const [ticketCount, setticketCount] = useState(0);
   const [contact, setcontact] = useState("");
   const [eventvar, setevent] = useState("");
-  const [date, setdate] = useState(Date());
-  const [paymentStatus, setpaymentStatus] = useState(false);
   const [date, setdate] = useState("");
+  const [paymentStatus, setpaymentStatus] = useState(false);
 
   const { id } = useParams();
 
@@ -112,16 +111,6 @@ function EditUser() {
             </div>
 
             <div className="mb-3">
-              <label className="form-label">Event Date</label>
-              <input
-                type="date"
-                className="form-control bg-secondary text-white"
-                value={date}
-                onChange={(event) => setdate(event.target.value)}
-              />
-            </div>
-
-            <div className="mb-3">
               <label htmlFor="contactInput" className="form-label">
                 Email / Phone
               </label>
@@ -151,18 +140,12 @@ function EditUser() {
             </div>
 
             <div className="mb-3">
-              <label className="form-label" htmlFor="event-date">
-                Select a date: {date}
-              </label>
+              <label className="form-label">Event Date</label>
               <input
                 type="date"
-                id="event-date"
-                name="event-date"
-                className="form-control bg-secondary"
+                className="form-control bg-secondary text-white"
                 value={date}
-                onChange={(event) => {
-                  setdate(event.target.value);
-                }}
+                onChange={(event) => setdate(event.target.value)}
               />
             </div>
 
