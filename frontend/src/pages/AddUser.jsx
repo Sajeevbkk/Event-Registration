@@ -169,37 +169,8 @@ function AddUser() {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="container-fluid">
-          <Link className="navbar-brand h1 mb-0" to="/">
-            Event Registration
-          </Link>
-
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link className="btn btn-outline-primary me-2" to="/">
-                  View All Registrations
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <div className="container-fluid min-vh-100 bg-dark">
-        <div className="container-sm min-vh-100 bg-dark text-white p-4">
+      <div className="container-fluid min-vh-100 p-4">
+        <div className="container-sm liquid-glass p-4 text-white">
           <h2 className="mb-4">Add User</h2>
 
           <form onSubmit={saveUser}>
@@ -211,7 +182,7 @@ function AddUser() {
                 id="userNameInput"
                 type="text"
                 placeholder="User Name"
-                className="form-control bg-secondary text-white"
+                className="form-control bg-transparent border-light text-white"
                 value={userName}
                 onChange={(event) => setUserName(event.target.value)}
                 required
@@ -226,7 +197,7 @@ function AddUser() {
                 id="contactInput"
                 type="text"
                 placeholder="Enter your email or phone number"
-                className="form-control bg-secondary text-white"
+                className="form-control bg-transparent border-light text-white"
                 aria-describedby="contactHelp"
                 value={contact}
                 onChange={(event) => setContact(event.target.value)}
@@ -240,7 +211,7 @@ function AddUser() {
               <h3 className="h5 mb-0">Events</h3>
               <button
                 type="button"
-                className="btn btn-outline-primary btn-sm"
+                className="btn btn-outline-light btn-sm"
                 onClick={addEventRow}
                 disabled={
                   events.length === 0 || eventRows.length >= availableEventCount
@@ -255,7 +226,8 @@ function AddUser() {
 
               return (
                 <div
-                  className="border border-secondary rounded p-3 mb-3"
+                  className="p-3 mb-3 rounded"
+                  style={{ background: 'rgba(0,0,0,0.2)' }}
                   key={eventRow.id}
                 >
                   <div className="d-flex justify-content-between align-items-center mb-3">
@@ -281,7 +253,7 @@ function AddUser() {
                       </label>
                       <select
                         id={`eventSelect-${eventRow.id}`}
-                        className="form-select bg-secondary text-white"
+                        className="form-select bg-transparent border-light text-white"
                         value={eventRow.event}
                         onChange={(event) =>
                           handleEventChange(eventRow.id, event.target.value)
@@ -325,7 +297,7 @@ function AddUser() {
                         id={`ticketCountInput-${eventRow.id}`}
                         type="number"
                         placeholder="Ticket Count"
-                        className="form-control bg-secondary text-white"
+                        className="form-control bg-transparent border-light text-white"
                         value={eventRow.ticketCount}
                         min="1"
                         max={
@@ -354,7 +326,7 @@ function AddUser() {
                       <input
                         id={`eventDateInput-${eventRow.id}`}
                         type="date"
-                        className="form-control bg-secondary text-white"
+                        className="form-control bg-transparent border-light text-white"
                         value={eventRow.date}
                         onChange={(event) =>
                           updateEventRow(
