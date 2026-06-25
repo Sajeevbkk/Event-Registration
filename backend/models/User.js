@@ -18,15 +18,11 @@ const userSchema = new mongoose.Schema({
   },
 
   date: {
-    type: Date,
+    type: String,
   },
 
   paymentStatus: {
     type: Boolean,
-  },
-
-  date: {
-    type: String,
   },
 });
 
