@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter, Link, Routes, Route, useLocation } from "react-router-dom";
+import {
+  BrowserRouter,
+  Link,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 
 import AddUser from "./pages/AddUser";
 import EditUser from "./pages/EditUser";
@@ -31,14 +37,21 @@ function Navigation() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/registrations">
-                Registrations
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="btn btn-outline-light ms-2" to="/create">
-                Create Registration
-              </Link>
+              {location.pathname === "/registrations" && (
+                <Link className="btn btn-outline-light ms-2" to="/create">
+                  Create Registration
+                </Link>
+              )}
+
+              {(location.pathname === "/create" ||
+                location.pathname.startsWith("/edituser/")) && (
+                <Link
+                  className="btn btn-outline-light ms-2"
+                  to="/registrations"
+                >
+                  View Registrations
+                </Link>
+              )}
             </li>
           </ul>
         </div>
