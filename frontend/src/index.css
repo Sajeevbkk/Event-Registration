@@ -1,0 +1,75 @@
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  --glass-blur: blur(10px);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
+  min-height: 100vh;
+}
+
+.liquid-glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 1rem;
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table.liquid-glass-table {
+  --bs-table-bg: transparent;
+  --bs-table-color: white;
+  background: transparent;
+}
+
+.table.liquid-glass-table th,
+.table.liquid-glass-table td {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.table.liquid-glass-table thead th {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.table.liquid-glass-table tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Fix inputs and selects for liquid glass styling */
+.bg-transparent.border-light.text-white {
+  background-color: rgba(255,255,255,0.05) !important;
+  color: white !important;
+}
+
+.bg-transparent.border-light.text-white::placeholder {
+  color: rgba(255,255,255,0.7) !important;
+}
+
+.bg-transparent.border-light.text-white:focus {
+  background-color: rgba(255,255,255,0.15) !important;
+  border-color: white !important;
+  box-shadow: 0 0 0 0.25rem rgba(255,255,255,0.25) !important;
+}
+
+/* Specific styling for select options to ensure they are visible */
+select.bg-transparent.border-light.text-white option {
+  background-color: #2a5298 !important;
+  color: white !important;
+}
