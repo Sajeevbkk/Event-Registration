@@ -113,38 +113,8 @@ function EditUser() {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="container-fluid">
-          <Link className="navbar-brand h1 mb-0" to="/">
-            Event Registration
-          </Link>
-
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link className="btn btn-outline-primary me-2" to="/">
-                  View All Registrations
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-      <div className="container-fluid min-vh-100 bg-dark">
-        <div className="container-sm min-vh-100 bg-dark text-white p-4">
+      <div className="container-fluid min-vh-100 p-4">
+        <div className="container-sm liquid-glass p-4 text-white">
           <h2 className="mb-4">Edit User</h2>
 
           <form onSubmit={updateUser}>
@@ -156,7 +126,7 @@ function EditUser() {
                 id="userNameInput"
                 type="text"
                 placeholder="User Name"
-                className="form-control bg-secondary text-white"
+                className="form-control bg-transparent border-light text-white"
                 value={userName}
                 onChange={(event) => setUserName(event.target.value)}
                 required
@@ -171,7 +141,7 @@ function EditUser() {
                 id="ticketCountInput"
                 type="number"
                 placeholder="Ticket Count"
-                className="form-control bg-secondary text-white"
+                className="form-control bg-transparent border-light text-white"
                 value={ticketCount}
                 min="1"
                 max={ticketLimit}
@@ -188,7 +158,7 @@ function EditUser() {
                 id="contactInput"
                 type="text"
                 placeholder="Enter your email or phone number"
-                className="form-control bg-secondary text-white"
+                className="form-control bg-transparent border-light text-white"
                 aria-describedby="contactHelp"
                 value={contact}
                 onChange={(event) => setContact(event.target.value)}
@@ -204,7 +174,7 @@ function EditUser() {
               </label>
               <select
                 id="eventSelect"
-                className="form-select bg-secondary text-white"
+                className="form-select bg-transparent border-light text-white"
                 value={eventvar}
                 onChange={handleEventChange}
                 required
@@ -244,7 +214,7 @@ function EditUser() {
               <input
                 id="eventDateInput"
                 type="date"
-                className="form-control bg-secondary text-white"
+                className="form-control bg-transparent border-light text-white"
                 value={date}
                 onChange={(event) => setDate(event.target.value)}
               />
